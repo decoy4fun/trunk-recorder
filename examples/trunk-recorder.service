@@ -2,8 +2,8 @@
 Description=Trunk Recorder Script
 
 [Service]
-User=luke #your username
-Group=luke #your username
+User=[user] #your username
+Group=[user] #your username
 Environment="PATH=/home/luke/bin/:/usr/local/bin:/usr/bin" #Make sure this points to your FFMPEG bin
 WorkingDirectory=/home/[user]/trunk-build #replace [user] with your username
 ExecStart=/home/[user] /trunk-build/auto-restart.sh #replace [user] with your username
