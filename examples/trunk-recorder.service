@@ -2,18 +2,26 @@
 Description=Trunk Recorder Script
 
 [Service]
-User=[user] #your username
-Group=[user] #your username
-Environment="PATH=/home/luke/bin/:/usr/local/bin:/usr/bin" #Make sure this points to your FFMPEG bin
-WorkingDirectory=/home/[user]/trunk-build #replace [user] with your username
-ExecStart=/home/[user] /trunk-build/auto-restart.sh #replace [user] with your username
+User=[your_username]       # Replace with your Linux username
+Group=[your_username]      # Replace with your Linux username
+Environment="PATH=/home/[your_username]/bin:/usr/local/bin:/usr/bin"  # Update this to include your FFMPEG location
+WorkingDirectory=/home/[your_username]/trunk-build  # Replace with the folder where your script is stored
+ExecStart=/home/[your_username]/trunk-build/auto-restart.sh  # Update with your script's full path
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 
-# copy this file to /etc/systemd/system
-# systemctl daemon-reload
-# systemctl enable trunk-recorder.service
-# systemctl start trunk-recorder.service
-#if you get an error it's likely that the script is not executable. Run "chmod a+x auto-restart.sh"
+# INSTRUCTIONS:
+# 1. Replace [your_username] with your Linux username in all fields above.
+# 2. Save this file as 'trunk-recorder.service'.
+# 3. Copy it to the systemd folder with: 
+#      sudo cp trunk-recorder.service /etc/systemd/system/
+# 4. Reload systemd to register the service:
+#      sudo systemctl daemon-reload
+# 5. Enable the service to start on boot:
+#      sudo systemctl enable trunk-recorder.service
+# 6. Start the service now:
+#      sudo systemctl start trunk-recorder.service
+# 7. If the service doesn’t start, ensure your script is executable:
+#      chmod +x /home/[your_username]/trunk-build/auto-restart.sh
