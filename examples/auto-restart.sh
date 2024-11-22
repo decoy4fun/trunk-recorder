@@ -5,6 +5,7 @@
 enable_emails="no"
 email_address=""
 
+#lines 10 through 87 handle email alerts and attachments. If disabled, skip to line 87
 
 # Get the directory of the current script
 script_dir="$(cd "$(dirname "$0")" && pwd)"
