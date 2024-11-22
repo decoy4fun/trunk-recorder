@@ -2,18 +2,18 @@
 Description=Trunk Recorder Script
 
 [Service]
-User=luke
-Group=luke
-Environment="PATH=/home/luke/bin/:/usr/local/bin:/usr/bin"
-WorkingDirectory=/home/luke/trunk-build
-ExecStart=/home/luke/trunk-build/auto-restart.sh
+User=luke #your username
+Group=luke #your username
+Environment="PATH=/home/luke/bin/:/usr/local/bin:/usr/bin" #Make sure this points to your FFMPEG bin
+WorkingDirectory=/home/[user]/trunk-build #replace [user] with your username
+ExecStart=/home/[user] /trunk-build/auto-restart.sh #replace [user] with your username
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 
-# Make sure the Path in the Environment line points to your FFMPEG bin
-# copy to /etc/systemd/system
+# copy this file to /etc/systemd/system
 # systemctl daemon-reload
 # systemctl enable trunk-recorder.service
 # systemctl start trunk-recorder.service
+#if you get an error it's likely that the script is not executable. Run "chmod a+x auto-restart.sh"
