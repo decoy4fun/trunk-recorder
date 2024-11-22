@@ -89,6 +89,6 @@ while true; do
         echo "Trunk-Recorder crashed with exit code $exit_code. Respawning without sending an email."
     fi
 
-    # Wait for 60 seconds before restarting the program
-    sleep 60
+    # Wait for 300 seconds before restarting the program
+    sleep 300
 done
