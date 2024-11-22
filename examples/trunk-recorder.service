@@ -4,7 +4,7 @@ Description=Trunk Recorder Script
 [Service]
 User=[your_username]       # Replace with your Linux username
 Group=[your_username]      # Replace with your Linux username
-Environment="PATH=/home/[your_username]/bin:/usr/local/bin:/usr/bin"  # Update this to include your FFMPEG location
+Environment="PATH=/home/[your_username]/bin:/usr/local/bin:/usr/bin"  # this should point to your FFMPEG bin
 WorkingDirectory=/home/[your_username]/trunk-build  # Replace with the folder where your script is stored
 ExecStart=/home/[your_username]/trunk-build/auto-restart.sh  # Update with your script's full path
 Restart=always
