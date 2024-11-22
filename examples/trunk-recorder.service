@@ -5,7 +5,7 @@ Description=Trunk Recorder Script
 User=[your_username]       # Replace with your Linux username
 Group=[your_username]      # Replace with your Linux username
 Environment="PATH=/home/[your_username]/bin:/usr/local/bin:/usr/bin"  # this should point to your FFMPEG bin
-WorkingDirectory=/home/[your_username]/trunk-build  # Replace with the folder where your script is stored
+WorkingDirectory=/home/[your_username]/trunk-build  # Replace with the folder where your script is stored. Usually the same folder you run trunk-recorder from
 ExecStart=/home/[your_username]/trunk-build/auto-restart.sh  # Update with your script's full path
 Restart=always
 
@@ -23,5 +23,5 @@ WantedBy=multi-user.target
 #      sudo systemctl enable trunk-recorder.service
 # 6. Start the service now:
 #      sudo systemctl start trunk-recorder.service
-# 7. If the service doesn’t start, ensure your script is executable:
+# 7. If the service doesn’t start, or you receive a permission denied error, ensure your script is executable:
 #      chmod +x /home/[your_username]/trunk-build/auto-restart.sh
