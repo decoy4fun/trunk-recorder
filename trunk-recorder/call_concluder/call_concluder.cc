@@ -429,12 +429,12 @@ void Call_Concluder::conclude_call(Call *call, System *sys, Config config) {
     return;
   }
   else if (call_info.transmission_list.size() == 0 && call_info.min_transmissions_removed > 0) {
-    BOOST_LOG_TRIVIAL(info) << loghdr << "No Transmissions were recorded! " << call_info.min_transmissions_removed << " transmissions less than " << sys->get_min_tx_duration() << " seconds were removed.";
+    BOOST_LOG_TRIVIAL(warning) << loghdr << "No Transmissions were recorded! " << call_info.min_transmissions_removed << " transmissions less than " << sys->get_min_tx_duration() << " seconds were removed.";
     return;
   }
 
   if (call_info.length <= sys->get_min_duration()) {
-    BOOST_LOG_TRIVIAL(error) << loghdr << "Call length: " << call_info.length << " is less than min duration: " << sys->get_min_duration();
+    BOOST_LOG_TRIVIAL(warning) << loghdr << "Call length: " << call_info.length << " is less than min duration: " << sys->get_min_duration();
     remove_call_files(call_info);
     return;
   }
